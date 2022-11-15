@@ -32,7 +32,17 @@ const app = new Vue({
         done: false,
       },
     ],
-    done: false,
+    // creo un nuovo oggetto dove mettere le voci presenti anche negli altri oggetti e nella quale ci metto il testo che inserirò nell'input, per poi pushare tutto nell'arrai principale che poi voglio far visualizzare in pagina.
+    newObjTodo: {
+      text: "",
+      done: false,
+    },
   },
-  methods: {},
+  methods: {
+    addTodo() {
+      this.arrTodos.push(this.newObjTodo);
+      // this.newObjTodo.text = "";
+      console.log(this.arrTodos);
+    },
+  },
 });
