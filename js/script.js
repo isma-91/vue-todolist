@@ -40,9 +40,14 @@ const app = new Vue({
   },
   methods: {
     addTodo() {
-      this.arrTodos.push(this.newObjTodo);
+      if (this.newObjTodo.text.trim()) {
+        this.arrTodos.push(this.newObjTodo);
+      }
       // this.newObjTodo.text = "";
       console.log(this.arrTodos);
+    },
+    deleteTodo(index) {
+      this.arrTodos.splice(index, 1);
     },
   },
 });

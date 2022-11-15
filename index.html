@@ -34,7 +34,7 @@
       <ul v-else>
         <li v-for="(item, index) in arrTodos" :key="item.text" class="item">
           {{ item.text }}
-          <i class="fas fa-times"></i>
+          <i class="fas fa-times" @click="deleteTodo(index)"></i>
         </li>
         <!-- <li>{{ text }}</li> -->
       </ul>
