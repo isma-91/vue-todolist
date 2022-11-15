@@ -32,7 +32,12 @@ const app = new Vue({
         done: false,
       },
     ],
-    // creo un nuovo oggetto dove mettere le voci presenti anche negli altri oggetti e nella quale ci metto il testo che inserirò nell'input, per poi pushare tutto nell'arrai principale che poi voglio far visualizzare in pagina.
+
+    // newObjTodo: {
+    //   text: '',
+    //   done: true,
+    // },
+
     text: "",
   },
   methods: {
@@ -42,17 +47,19 @@ const app = new Vue({
           // ...this.newObjTodo,
           text: this.text.trim(),
           done: false,
+          // per pushare una 'copia' dell'oggetto creato si crea una sintassi ad oggetto con la tonda e la quadra e poi all'interno si ridichiara ciò che vogliamo venga inserito nell'array sottoforma di oggetto. Oppure come ho commentato sopra si crea un oggetto con all'interno le stesse proprietà e lo si fa "esplodere" così che venga creata una copia di quell'oggetto e pushato nell'arrai da noi selezionato
         });
       }
       this.text = "";
       // this.newObjTodo.text = "";
-      console.log(this.arrTodos);
+      // console.log(this.arrTodos);
     },
 
     deleteTodo(index) {
       this.arrTodos.splice(index, 1);
     },
 
+    // Ricordarsi che quando dobbiamo accedere ad una determinata proprietà allinterno di un oggetto, che però è, a sua volta, all'interno di un array si deve sempre specificare la posizione di quell'oggetto, altrimenti non saremo in gradi di accedere alle sue chiavi. In questo caso abbiamo messo come argomento l'index che poi lo darà la funzione/ metodo richiamato in HTML con Vue prendedolo dal ciclo for che abbiamo fatto sulo stesso elemento e così gli dirà la posizione.
     changeStatus(index) {
       console.log(this.arrTodos);
       if (this.arrTodos[index].done) {
